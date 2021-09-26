@@ -6,11 +6,15 @@ import java.util.Arrays;
  * 选择排序
  * 每一次循环找出最小(大)的元素
  */
-public class SelectionSort {
+public class SelectionSort2 {
+    public static void swap(int[] arr,int i,int minIndex) {
+        int temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
 
-    public static void selectSort(int arr[]) {
-        // 当数组为空或者数据为单个值，跳过
-        if (arr == null || arr.length < 2) {
+    public static void selectionSort(int[] arr) {
+        if (arr==null || arr.length <= 1) {
             return;
         }
         for (int i = 0; i < arr.length - 1; i++) {
@@ -22,15 +26,10 @@ public class SelectionSort {
         }
     }
 
-    public static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-    public static void main(String[] args) {
-        int[] arr = {2,3,5,3,5,6,9,7};
-        selectSort(arr);
-        System.out.println(Arrays.toString(arr));
 
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 6, 4, 9, 7, 3};
+        selectionSort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 }
